@@ -4,9 +4,7 @@ document.querySelector('.poster-header__nav').addEventListener('click', e=>{
     const {target} = e
     const {id} = target
     const findDash = id.indexOf('-')
-    console.log(findDash)
-    const IDsliced = id.slice(findDash, findDash.length-1)
-    console.log(IDsliced)
+    const IDsliced = id.slice(findDash+1, findDash.length)
     getArtworkIDs(IDsliced)
 
 })
@@ -16,12 +14,13 @@ function getArtworkIDs (artistID){
     fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
     .then(res => res.json()) 
     .then(object => { 
-        console.log(object)        
+    
         //generate  random ID
-        // const randomIndex = Math.floor(Math.random()* (object.objectIDs.length - 1) + 1)
-
-        // const randomObjectID = object.objectIDs[randomIndex]
-        // getArtwork(randomObjectID)
+        const randomIndex = Math.floor(Math.random()* (object.data.artwork_ids.length - 1) + 1)
+        console.log(randomIndex)
+        const randomObjectID = object.data.artwork_ids[randomIndex]
+        console.log(randomObjectID)
+        getArtwork(randomObjectID)
     })
 
     .catch(err => {
@@ -31,10 +30,11 @@ function getArtworkIDs (artistID){
 
 
 function getArtwork (ID){
-    fetch(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${ID}`)
+    fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
     .then(res => res.json())
     .then(artworkDetails => { console.log(artworkDetails)
         const poster = new Poster(artworkDetails)
+        poster.displayImage()
     })
 
     .catch(err => {
@@ -44,11 +44,29 @@ function getArtwork (ID){
 
 class Poster{
     constructor (artworkInfo) {
-       this.artistName = artworkInfo.artistDisplayName
-       this.artistNationality = artworkInfo.artistNationality
-       this.department = artworkInfo.department
-       this.dimensions = artworkInfo.dimensions
-       this.medium = artworkInfo.medium
-       
+        this.artistName = artworkInfo.data.artist_title
+        this.credit = artworkInfo.data.credit_line
+        this.date = artworkInfo.data.date_display
+        this.department = artworkInfo.data.department_title
+        this.dimensions = artworkInfo.data.dimensions
+        this.artworkID = artworkInfo.data.id
+        this.updated = artworkInfo.data.last_updated
+        this.medium = artworkInfo.data.medium_display
+        this.origin = artworkInfo.data.place_of_origin
+        this.title= artworkInfo.data.title
+        this.iiifURL = artworkInfo.config["iiif_url"]
+        this.imageID = artworkInfo.data["image_id"]
+        this.thumbnail = artworkInfo.data.thumbnail
+    }
+
+    displayImage(){
+        // check if this.thumbnail === null, if so display placeholderimage
+        if (this.thumbnail === null || this.thumbnail === undefined) {
+            document.querySelector('#poster-main__img').src = 'https://images.unsplash.com/photo-1651098527823-d24f680f3f09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MTUxMzQ2MA&ixlib=rb-1.2.1&q=80&w=1080'
+        } else {
+        const imagePath = '/full/843,/0/default.jpg'
+        const imageURL = `${this.iiifURL}/${this.imageID}${imagePath}`
+        document.querySelector('#poster-main__img').src = imageURL
+        }
     }
 }
