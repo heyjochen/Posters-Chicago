@@ -88,29 +88,17 @@ small, .text_small {font-size: 0.8rem;}
      border: .15rem solid black;
      text-transform: uppercase;
 }
-
-.poster-main{
-     height: 100vh;
-     width: 70%;
-     position: relative;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     overflow: hidden;
+.poster-header__nav button:hover{
+          display: block;
+     margin: 1rem 0;
+     padding: 1rem 2rem;
+     border-radius: .4rem;
+     background-color: transparent;
+     border: .15rem solid black;
+     text-transform: uppercase;
 }
 
-.poster-main__imgInfo{
-     height: 100%;
-     width: 150%;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-content: space-evenly;
-     padding: 2rem;
-     overflow: hidden;
-     color: rgba(255,255,255,.7);
-     position: absolute;
-}
+
 
 .poster-main__h1{
      font-size: 8rem;
@@ -127,18 +115,38 @@ small, .text_small {font-size: 0.8rem;}
      font-size: 2rem;
 }
 
-.poster-main__poster{
+.poster-main{
+     height: 100vh;
+     width: 40%;
      display: flex;
-     justify-content: center;
      align-items: center;
-     height: 100%;
-     width: 100%;
+     position: relative;
+     overflow: hidden;
 }
 
-#poster-main__img{
-     height: 90%;
+.poster-main__poster{
+     height: 80vh;
+     width: 100%;
+     overflow: hidden;
+}
+
+
+.poster-main__poster img{
+     height: 100%;
      width: 100%;
      object-fit: cover;
+     transform: scale(3);
+}
+
+.poster-main__imgInfo{
+     width: 150%;
+     position: absolute;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-content: space-evenly;
+     overflow: hidden;
+     color: rgba(255,255,255,.7);
 }
 
 /******************************************
