@@ -17,7 +17,6 @@ function getArtworkIDs (artistID){
     
         //generate  random ID
         const randomIndex = Math.floor(Math.random()* (object.data.artwork_ids.length - 1) + 1)
-        console.log(randomIndex)
         const randomObjectID = object.data.artwork_ids[randomIndex]
         console.log(randomObjectID)
         getArtwork(randomObjectID)
@@ -32,7 +31,7 @@ function getArtworkIDs (artistID){
 function getArtwork (ID){
     fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
     .then(res => res.json())
-    .then(artworkDetails => { console.log(artworkDetails)
+    .then(artworkDetails => { 
         const poster = new Poster(artworkDetails)
         poster.displayImage()
         poster.addTitle()
@@ -40,6 +39,7 @@ function getArtwork (ID){
         poster.addAlt()
         poster.addDimensions()
         poster.addDepartment()
+        poster.changeTextShadow()
     })
 
     .catch(err => {
@@ -63,6 +63,9 @@ class Poster{
         this.iiifURL = artworkInfo.config["iiif_url"]
         this.imageID = artworkInfo.data["image_id"]
         this.thumbnail = artworkInfo.data.thumbnail
+        this.Hue = artworkInfo.data.color.h
+        this.Saturation = artworkInfo.data.color.s
+        this.Lightness = artworkInfo.data.color.l
 
     }
 
@@ -78,7 +81,8 @@ class Poster{
     }
 
     addTitle(){
-        const title = document.querySelector('.poster-main__h1').textContent = this.title
+        const title = document.querySelector('.poster-main__h1')
+        title.textContent = this.title
     }
 
     addArtist(){
@@ -95,6 +99,10 @@ class Poster{
 
     addDepartment(){
         const department = document.getElementById('poster-main__department').textContent = this.department
+    }
+
+    changeTextShadow(){
+        document.querySelector('.poster-main__imgInfo').style.textShadow = `1px 1px 0px hsl(${this.Hue}, ${this.Saturation}%, ${this.Lightness}%)`
     }
 
 
