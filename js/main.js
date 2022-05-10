@@ -35,6 +35,11 @@ function getArtwork (ID){
     .then(artworkDetails => { console.log(artworkDetails)
         const poster = new Poster(artworkDetails)
         poster.displayImage()
+        poster.addTitle()
+        poster.addArtist()
+        poster.addAlt()
+        poster.addDimensions()
+        poster.addDepartment()
     })
 
     .catch(err => {
@@ -44,6 +49,7 @@ function getArtwork (ID){
 
 class Poster{
     constructor (artworkInfo) {
+        this.description = artworkInfo.data.thumbnail.alt_text
         this.artistName = artworkInfo.data.artist_title
         this.credit = artworkInfo.data.credit_line
         this.date = artworkInfo.data.date_display
@@ -57,6 +63,7 @@ class Poster{
         this.iiifURL = artworkInfo.config["iiif_url"]
         this.imageID = artworkInfo.data["image_id"]
         this.thumbnail = artworkInfo.data.thumbnail
+
     }
 
     displayImage(){
@@ -69,4 +76,26 @@ class Poster{
         document.querySelector('#poster-main__img').src = imageURL
         }
     }
+
+    addTitle(){
+        const title = document.querySelector('.poster-main__h1').textContent = this.title
+    }
+
+    addArtist(){
+        const artist = document.querySelector('#poster-main__artistName').innerHTML = this.artistName 
+    }
+
+    addAlt(){
+        const altText = document.querySelector('.poster-main__h2').textContent = this.description
+    }
+
+    addDimensions(){
+        const dimensions = document.querySelector('.poster-main__h3').textContent = this.dimensions
+    }
+
+    addDepartment(){
+        const department = document.getElementById('poster-main__department').textContent = this.department
+    }
+
+
 }
