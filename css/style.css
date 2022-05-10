@@ -32,6 +32,8 @@ body {
      height: 100vh;
      width: 100vw;
      display: flex;
+     flex-direction: column;
+     align-items: center;
      justify-content: space-between;
      background: white;
      font-family: 'Playfair Display', serif;
@@ -71,34 +73,16 @@ small, .text_small {font-size: 0.8rem;}
      max-width: 1280px;
      margin: 0 auto;
 }
-.poster-header{
-     width: 20%;
-}
 
-.poster-header__nav {
-     text-align: center;
-}
+.poster-header__nav a{
+     margin-right: 2rem;
+     font-size: 2rem;
+     text-decoration: underline;
 
-.poster-header__nav button{
-     display: block;
-     margin: 1rem 0;
-     padding: 1rem 2rem;
-     border-radius: .4rem;
-     background-color: transparent;
-     border: .15rem solid black;
-     text-transform: uppercase;
 }
-.poster-header__nav button:hover{
-          display: block;
-     margin: 1rem 0;
-     padding: 1rem 2rem;
-     border-radius: .4rem;
-     background-color: transparent;
-     border: .15rem solid black;
-     text-transform: uppercase;
+.poster-header__nav a:hover{
+     cursor: pointer;
 }
-
-
 
 .poster-main__h1{
      font-size: 8rem;
