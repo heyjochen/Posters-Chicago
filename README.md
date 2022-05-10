@@ -1,14 +1,14 @@
-# Posters: <a href="" target="_blank">Play Here</a>
-<a href="" target="_blank"><img src="/assets/readme.gif" /></a>
+# Posters: <a href="https://chicagoposters.netlify.app/" target="_blank">Create your Poster here</a>
+<a href="" target="_blank"><img src="https://raw.githubusercontent.com/heyjochen/Posters-Chicago/main/assets/READMEIMG.jpg" /></a>
 
 Create and print your Poster today.
 
 ## Tech used: ![HTML5 BADGE](https://img.shields.io/static/v1?label=|&message=HTML5&color=23555f&style=flat-square&logo=html5)![CSS BADGE](https://img.shields.io/static/v1?label=|&message=CSS3&color=285f65&style=flat-square&logo=css3)![JAVASCRIPT BADGE](https://img.shields.io/static/v1?label=|&message=JAVASCRIPT&color=3c7f5d&style=flat-square&logo=javascript)
 
-What did you focus on?
+I focused on expanding my knowledge in Object Oriented Programming using an API
 
 ## Optimizations
-How will you improve the project?
+It would be great to implement a function that analyzes the image and depending on overall brightness changes the hue of the text elements.
 
 
 ## Lessons Learned:
