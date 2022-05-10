@@ -12,7 +12,8 @@ How will you improve the project?
 
 
 ## Lessons Learned:
-What did you learn?
+The Chicago Art Institute's API returnd information about every artwork in their collection. One of the properties was formatted in a way that included a line break using '\n'. To make use of this in my HTML, I had to put a property of white-space with a value of pre-line on the respective text element. Per MDN definition: 
+"Sequences of white space are collapsed. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes." 
 
 
 
