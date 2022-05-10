@@ -60,7 +60,6 @@ h1, h2, h3, h4, h5 {
 }
 .poster-header__nav{
      padding: 0 1rem;
-     line-height: 1;
 }
 
 .poster-header__nav a{
@@ -128,7 +127,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .poster-footer a{
-
      color: black;
 }
 
