@@ -32,19 +32,19 @@ I was able to extract the artworks Dominant color as an HSL value and used that 
     <td width="33.3%" valign="top">
 <a target="_blank" href="https://paleontologista.com/"> Paleontologista</a>
         <br />
-      <a target="_blank" href="">
+      <a target="_blank" href="https://paleontologista.com/">
             <img src="https://github.com/heyjochen/heyjochen/blob/main/assets/Website_Jingmai-OConnor-5fps.gif" width="100%"  alt=""/>
         </a>
     </td>
     <td width="33.3%" valign="top">
-<a target="_blank" href="">News-Scraper-App</a>
+<a target="_blank" href="https://github.com/heyjochen/News-Scraper-App">News-Scraper-App</a>
       <br />
         <a target="_blank" href="https://github.com/heyjochen/News-Scraper-App">
           <img src="https://github.com/heyjochen/News-Scraper-App/blob/main/assets/readme.gif?raw=true" width="100%" alt=""/>
         </a>
     </td>
     <td width="33.3%" valign="top">
-<a target="_blank" href="">Portfolio</a>
+<a target="_blank" href="https://stierberger.com/">Portfolio</a>
         <br />
         <a target="_blank" href="https://stierberger.com/">
           <img src="https://github.com/heyjochen/heyjochen/blob/main/assets/Website_Jochen-Stierberger-5fps.gif" width="100%" alt=""/>
