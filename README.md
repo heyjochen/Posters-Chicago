@@ -9,14 +9,16 @@ Create and print your Poster today.
 I focused on expanding my knowledge in Object Oriented Programming using an API
 
 ## Optimizations
-My goal is to implement a functon that enables the user to save the Poster as PDF.
+My goal is to implement Artifical Intelligence to describe the image and to include a functon that enables the user to save the Poster as PDF.
 
 
 ## Lessons Learned:
+I was able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
+
 The Chicago Art Institute's API returnd information about every artwork in their collection. One of the properties was formatted in a way that included a line break using '\n'. To make use of this in my HTML, I had to put a property of white-space with a value of pre-line on the respective text element. Per MDN definition: 
 "Sequences of white space are collapsed. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes." 
 
-I was able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
+
 
 
 
