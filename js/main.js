@@ -5,47 +5,78 @@ document.querySelector('.poster-header__nav').addEventListener('click', e=>{
     const {id} = target
     const findDash = id.indexOf('-')
     const IDsliced = id.slice(findDash+1, findDash.length)
-    getArtworkIDs(IDsliced)
+    showArtistPoster(IDsliced)
 
 })
 
 //Grab all Artworks that have an image
-function getArtworkIDs (artistID){
-    fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
-    .then(res => res.json()) 
-    .then(object => { 
+async function showArtistPoster(artistID) {
+
+    try {
+    //read artist JSON
+    let artist = await fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
+    let artistObject = await artist.json()
+
+    //generate  random ID
+    const randomIndex = Math.floor(Math.random() * (artistObject.data.artwork_ids.length - 1) + 1)
+    const randomObjectID = artistObject.data.artwork_ids[randomIndex]
+    console.log(randomObjectID)
+    // getArtwork(randomObjectID)
+
+    //read Artwork JSON
+    let artwork = await fetch(`https://api.artic.edu/api/v1/artworks/${randomObjectID}`)
+    let artworkObject = await artwork.json()
+
+    const poster = new Poster(artworkObject)
+    poster.displayImage()
+    poster.addTitle()
+    poster.addArtist()
+    poster.addAlt()
+    poster.addDimensions()
+    poster.addDepartment()
+    poster.changeTextShadow()
+    }
+    catch(err) {
+        alert(err);
+    }
+}
+
+// function getArtworkIDs (artistID){
+//     fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
+//     .then(res => res.json()) 
+//     .then(object => { 
     
-        //generate  random ID
-        const randomIndex = Math.floor(Math.random() * (object.data.artwork_ids.length - 1) + 1)
-        const randomObjectID = object.data.artwork_ids[randomIndex]
-        // console.log(randomObjectID)
-        getArtwork(randomObjectID)
-    })
+//         //generate  random ID
+//         const randomIndex = Math.floor(Math.random() * (object.data.artwork_ids.length - 1) + 1)
+//         const randomObjectID = object.data.artwork_ids[randomIndex]
+//         // console.log(randomObjectID)
+//         getArtwork(randomObjectID)
+//     })
 
-    .catch(err => {
-        console.log(`There is an error getting the artworks ID ${err}`)
-    });
-}
+//     .catch(err => {
+//         console.log(`There is an error getting the artworks ID ${err}`)
+//     });
+// }
 
-// gets the actual artwork, creates new Poster, fills content
-function getArtwork (ID){
-    fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
-    .then(res => res.json())
-    .then(artworkDetails => { 
-        const poster = new Poster(artworkDetails)
-        poster.displayImage()
-        poster.addTitle()
-        poster.addArtist()
-        poster.addAlt()
-        poster.addDimensions()
-        poster.addDepartment()
-        poster.changeTextShadow()
-    })
+// // gets the actual artwork, creates new Poster, fills content
+// function getArtwork (ID){
+//     fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
+//     .then(res => res.json())
+//     .then(artworkDetails => { 
+//         const poster = new Poster(artworkDetails)
+//         poster.displayImage()
+//         poster.addTitle()
+//         poster.addArtist()
+//         poster.addAlt()
+//         poster.addDimensions()
+//         poster.addDepartment()
+//         poster.changeTextShadow()
+//     })
 
-    .catch(err => {
-        console.log(`There is an error getting the Poster ${err}`)
-    });
-}
+//     .catch(err => {
+//         console.log(`There is an error getting the Poster ${err}`)
+//     });
+// }
 
 class Poster{
     constructor (artworkInfo) {
