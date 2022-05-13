@@ -16,18 +16,18 @@ function getArtworkIDs (artistID){
     .then(object => { 
     
         //generate  random ID
-        const randomIndex = Math.floor(Math.random()* (object.data.artwork_ids.length - 1) + 1)
+        const randomIndex = Math.floor(Math.random() * (object.data.artwork_ids.length - 1) + 1)
         const randomObjectID = object.data.artwork_ids[randomIndex]
-        console.log(randomObjectID)
+        // console.log(randomObjectID)
         getArtwork(randomObjectID)
     })
 
     .catch(err => {
-        console.log(`error ${err}`)
+        console.log(`There is an error getting the artworks ID ${err}`)
     });
 }
 
-
+// gets the actual artwork, creates new Poster, fills content
 function getArtwork (ID){
     fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
     .then(res => res.json())
@@ -43,7 +43,7 @@ function getArtwork (ID){
     })
 
     .catch(err => {
-        console.log(`error ${err}`)
+        console.log(`There is an error getting the Poster ${err}`)
     });
 }
 
