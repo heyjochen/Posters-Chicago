@@ -11,6 +11,8 @@ I focused on expanding my knowledge in Object Oriented Programming using an API
 ## Optimizations
 My goal is to implement Artifical Intelligence to describe the image and to include a functon that enables the user to save the Poster as PDF.
 
+I will also rewrite my functions to fetch images to make the user experience better for user on slow data plans and handle errors for posters without an image.
+
 
 ## Lessons Learned:
 I was able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
