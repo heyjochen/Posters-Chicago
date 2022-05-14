@@ -41,43 +41,6 @@ async function showArtistPoster(artistID) {
     }
 }
 
-// function getArtworkIDs (artistID){
-//     fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
-//     .then(res => res.json()) 
-//     .then(object => { 
-    
-//         //generate  random ID
-//         const randomIndex = Math.floor(Math.random() * (object.data.artwork_ids.length - 1) + 1)
-//         const randomObjectID = object.data.artwork_ids[randomIndex]
-//         // console.log(randomObjectID)
-//         getArtwork(randomObjectID)
-//     })
-
-//     .catch(err => {
-//         console.log(`There is an error getting the artworks ID ${err}`)
-//     });
-// }
-
-// // gets the actual artwork, creates new Poster, fills content
-// function getArtwork (ID){
-//     fetch(`https://api.artic.edu/api/v1/artworks/${ID}`)
-//     .then(res => res.json())
-//     .then(artworkDetails => { 
-//         const poster = new Poster(artworkDetails)
-//         poster.displayImage()
-//         poster.addTitle()
-//         poster.addArtist()
-//         poster.addAlt()
-//         poster.addDimensions()
-//         poster.addDepartment()
-//         poster.changeTextShadow()
-//     })
-
-//     .catch(err => {
-//         console.log(`There is an error getting the Poster ${err}`)
-//     });
-// }
-
 class Poster{
     constructor (artworkInfo) {
         this.description = artworkInfo.data.thumbnail.alt_text
