@@ -37,7 +37,7 @@ async function showArtistPoster(artistID) {
     poster.changeTextShadow()
     }
     catch(err) {
-        alert(err);
+        console.error(`Could not get poster: ${err}`);
     }
 }
 
