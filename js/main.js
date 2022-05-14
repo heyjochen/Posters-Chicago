@@ -9,7 +9,7 @@ document.querySelector('.poster-header__nav').addEventListener('click', e=>{
 
 })
 
-//Grab all Artworks that have an image
+//Grab an artists artworks
 async function showArtistPoster(artistID) {
 
     try {
@@ -17,13 +17,11 @@ async function showArtistPoster(artistID) {
     let artist = await fetch(`https://api.artic.edu/api/v1/artists/${artistID}`)
     let artistObject = await artist.json()
 
-    //generate  random ID
+    //generate  random Artwork ID
     const randomIndex = Math.floor(Math.random() * (artistObject.data.artwork_ids.length - 1) + 1)
     const randomObjectID = artistObject.data.artwork_ids[randomIndex]
-    console.log(randomObjectID)
-    // getArtwork(randomObjectID)
 
-    //read Artwork JSON
+    //read Artwork JSON itself
     let artwork = await fetch(`https://api.artic.edu/api/v1/artworks/${randomObjectID}`)
     let artworkObject = await artwork.json()
 
