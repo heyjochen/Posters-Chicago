@@ -20,6 +20,7 @@ async function showArtistPoster(artistID) {
     //generate  random Artwork ID
     const randomIndex = Math.floor(Math.random() * (artistObject.data.artwork_ids.length - 1) + 1)
     const randomObjectID = artistObject.data.artwork_ids[randomIndex]
+    console.log(randomObjectID)
 
     //read Artwork JSON itself
     let artwork = await fetch(`https://api.artic.edu/api/v1/artworks/${randomObjectID}`)
@@ -55,9 +56,7 @@ class Poster{
         this.iiifURL = artworkInfo.config["iiif_url"]
         this.imageID = artworkInfo.data["image_id"]
         this.thumbnail = artworkInfo.data.thumbnail
-        this.Hue = artworkInfo.data.color.h
-        this.Saturation = artworkInfo.data.color.s
-        this.Lightness = artworkInfo.data.color.l
+        this.color = artworkInfo.data.color
 
     }
 
@@ -82,7 +81,9 @@ class Poster{
     }
 
     addAlt(){
+        if (this.description !== null){
         document.querySelector('.poster-main__h2').textContent = this.description
+        }
     }
 
     addDimensions(){
@@ -94,7 +95,9 @@ class Poster{
     }
 
     changeTextShadow(){
-        document.querySelector('.poster-main__imgInfo').style.textShadow = `1px 1px 0px hsl(${this.Hue}, ${this.Saturation}%, ${this.Lightness}%)`
+        if (this.color !== null) {
+        document.querySelector('.poster-main__imgInfo').style.textShadow = `1px 1px 0px hsl(${this.color.h}, ${this.color.s}%, ${this.color.l}%)`
+        }
     }
 
 
