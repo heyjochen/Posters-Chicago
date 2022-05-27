@@ -15,7 +15,7 @@ I will also rewrite my functions to fetch images to make the user experience bet
 
 
 ## Lessons Learned:
-+ One thing I learned was to use Promises and callback to promisify the load of images. This is better in terms of accesablity as users on slow networks won't see the related text before the image is fully loaded.
++ One thing I learned was to use Promises and callbacks to promisify the load of images. This is better in terms of accessablity as users on slow networks won't see the related text before the image is fully loaded.
 
 + I was also able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
 
