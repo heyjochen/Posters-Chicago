@@ -15,9 +15,11 @@ I will also rewrite my functions to fetch images to make the user experience bet
 
 
 ## Lessons Learned:
-I was able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
++ One thing I learned was to use Promises and callback to promisify the load of images. This is better in terms of accesablity as users on slow networks won't see the related text before the image is fully loaded.
 
-The Chicago Art Institute's API returnd information about every artwork in their collection. One of the properties was formatted in a way that included a line break using '\n'. To make use of this in my HTML, I had to put a property of white-space with a value of pre-line on the respective text element. Per MDN definition: 
++ I was also able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
+
++ The Chicago Art Institute's API returnd information about every artwork in their collection. One of the properties was formatted in a way that included a line break using '\n'. To make use of this in my HTML, I had to put a property of white-space with a value of pre-line on the respective text element. Per MDN definition: 
 "Sequences of white space are collapsed. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes." 
 
 
