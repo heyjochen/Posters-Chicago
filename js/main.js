@@ -31,13 +31,7 @@ async function showArtistPoster(artistID) {
     let artworkObject = await artwork.json();
 
     const poster = new Poster(artworkObject);
-    await poster.displayImage();
-    await poster.addTitle();
-    await poster.addArtist();
-    await poster.addAlt();
-    await poster.addDimensions();
-    await poster.addDepartment();
-    await poster.changeTextShadow();
+    await poster.servePoster();
     
   } catch (err) {
     console.error(`Could not get poster: ${err}`);
@@ -48,19 +42,24 @@ class Poster {
   constructor(artworkInfo) {
     this.description = artworkInfo.data.thumbnail.alt_text;
     this.artistName = artworkInfo.data.artist_title;
-    this.credit = artworkInfo.data.credit_line;
-    this.date = artworkInfo.data.date_display;
     this.department = artworkInfo.data.department_title;
     this.dimensions = artworkInfo.data.dimensions;
     this.artworkID = artworkInfo.data.id;
-    this.updated = artworkInfo.data.last_updated;
-    this.medium = artworkInfo.data.medium_display;
-    this.origin = artworkInfo.data.place_of_origin;
     this.title = artworkInfo.data.title;
     this.iiifURL = artworkInfo.config["iiif_url"];
     this.imageID = artworkInfo.data["image_id"];
     this.thumbnail = artworkInfo.data.thumbnail;
     this.color = artworkInfo.data.color;
+  }
+
+  async servePoster(){
+    await this.displayImage();
+    await this.addTitle();
+    await this.addArtist();
+    await this.addAlt();
+    await this.addDimensions();
+    await this.addDepartment();
+    await this.changeTextShadow();
   }
 
   async displayImage() {
