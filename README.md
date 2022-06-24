@@ -9,13 +9,13 @@ Create and print your Poster today.
 I focused on expanding my knowledge in Object Oriented Programming using an API
 
 ## Optimizations
-My goal is to implement Artifical Intelligence to describe the image and to include a functon that enables the user to save the Poster as PDF.
+My goal is to implement Artifical Intelligence to describe the image and to include a function that enables the user to save the Poster as PDF.
 
 I will also rewrite my functions to fetch images to make the user experience better for user on slow data plans and handle errors for posters without an image.
 
 
 ## Lessons Learned:
-+ One thing I learned was to use Promises and callbacks to promisify the load of images. This is better in terms of accessablity as users on slow networks won't see the related text before the image is fully loaded.
++ One thing I learned was to use Promises and callbacks to promisify the load of images. This is better in terms of accessability as users on slow networks won't see the related text before the image is fully loaded.
 
 + I was also able to extract the artworks Dominant color as an HSL value and used that to style the text-shadow of each Text element in addition to a transparency value of 50%.
 
